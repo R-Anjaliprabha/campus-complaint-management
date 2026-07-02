@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raise Complaint</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="complaint">
+  <main class="form-shell">
+    <section class="card form-card">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Student Portal</p>
+          <h1>Raise a Complaint</h1>
+          <p class="section-copy">
+            Complaints are routed to HoS first, then HOD, then admin for worker assignment.
+          </p>
+        </div>
+        <button class="ghost-btn" type="button" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+      </div>
+
+      <form class="form-grid" onsubmit="addComplaint(event)">
+        <label class="field field-span-2">
+          <span>Complaint Title</span>
+          <input id="title" type="text" placeholder="Example: Smart board not working" required>
+        </label>
+
+        <label class="field">
+          <span>Category</span>
+          <select id="category" required onchange="syncSuggestedWorker()">
+            <option value="">Select category</option>
+            <option value="Smart Board">Smart Board</option>
+            <option value="Lab Equipment">Lab Equipment</option>
+            <option value="Plumbing">Plumbing</option>
+            <option value="Electrical">Electrical</option>
+            <option value="Classroom Maintenance">Classroom Maintenance</option>
+            <option value="Internet / Network">Internet / Network</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Location</span>
+          <input id="location" type="text" placeholder="Block / Lab / Room number" required>
+        </label>
+
+        <label class="field field-span-2">
+          <span>Description</span>
+          <textarea id="desc" rows="6" placeholder="Describe the issue clearly so it can be approved and assigned faster." required></textarea>
+        </label>
+
+        <div class="info-banner field-span-2">
+          <strong>Suggested routing:</strong>
+          <span id="suggestedWorkerText">Select a category to view the likely worker assignment.</span>
+        </div>
+
+        <button class="primary-btn field-span-2" type="submit">Submit Complaint</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

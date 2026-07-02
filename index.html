@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Complaint Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="auth">
+  <div class="auth-shell">
+    <section class="hero-panel">
+      <p class="eyebrow">Campus Complaint Management</p>
+      <h1>Smart complaint workflow with role-based visibility.</h1>
+      <p class="hero-copy">
+        Students raise complaints, HoS and HOD validate them, admins assign workers,
+        and resolution updates stay visible to the right people only.
+      </p>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Approval Flow</h3>
+          <p>Student → HoS → HOD → Admin → Worker</p>
+        </article>
+        <article class="feature-card">
+          <h3>Controlled Access</h3>
+          <p>Each role sees only complaints relevant to them.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Live Tracking</h3>
+          <p>Status moves from pending to resolved with a clear trail.</p>
+        </article>
+      </div>
+
+      <div class="demo-box">
+        <h3>Demo Accounts</h3>
+        <p>Use these for quick testing.</p>
+        <ul class="demo-list">
+          <li><b>Student:</b> student@campus.com / 1234</li>
+          <li><b>HoS:</b> hos@campus.com / 1234</li>
+          <li><b>HOD:</b> hod@campus.com / 1234</li>
+          <li><b>Admin:</b> admin@campus.com / 1234</li>
+          <li><b>Worker:</b> worker@campus.com / 1234</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="panel-tabs">
+        <button class="tab-button active" id="loginTab" onclick="showAuthTab('login')">Login</button>
+        <button class="tab-button" id="registerTab" onclick="showAuthTab('register')">Register</button>
+      </div>
+
+      <form id="loginForm" class="auth-form card" onsubmit="login(event)">
+        <h2>Welcome Back</h2>
+        <p class="section-copy">Sign in to continue to your role dashboard.</p>
+
+        <label class="field">
+          <span>Email</span>
+          <input id="loginEmail" type="email" placeholder="Enter your email" required>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input id="loginPass" type="password" placeholder="Enter your password" required>
+        </label>
+
+        <button class="primary-btn" type="submit">Login</button>
+      </form>
+
+      <form id="registerForm" class="auth-form card hidden" onsubmit="register(event)">
+        <h2>Create Account</h2>
+        <p class="section-copy">Role-specific fields appear automatically.</p>
+
+        <div class="form-grid">
+          <label class="field">
+            <span>Name</span>
+            <input id="rname" type="text" placeholder="Full name" required>
+          </label>
+
+          <label class="field">
+            <span>Email</span>
+            <input id="remail" type="email" placeholder="name@campus.com" required>
+          </label>
+
+          <label class="field">
+            <span>Password</span>
+            <input id="rpass" type="password" placeholder="Create password" required>
+          </label>
+
+          <label class="field">
+            <span>Role</span>
+            <select id="role" onchange="toggleRegistrationFields()" required>
+              <option value="student">Student</option>
+              <option value="hos">HoS</option>
+              <option value="hod">HOD</option>
+              <option value="admin">Admin</option>
+              <option value="worker">Worker</option>
+            </select>
+          </label>
+
+          <label class="field role-field" data-roles="student,hos,hod">
+            <span>Department</span>
+            <select id="dept">
+              <option value="">Select department</option>
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="EEE">EEE</option>
+              <option value="MECH">MECH</option>
+              <option value="CIVIL">CIVIL</option>
+            </select>
+          </label>
+
+          <label class="field role-field" data-roles="student,hos">
+            <span>Class / Section</span>
+            <select id="class">
+              <option value="">Select class</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+            </select>
+          </label>
+
+          <label class="field role-field" data-roles="student,hos">
+            <span>Year</span>
+            <select id="year">
+              <option value="">Select year</option>
+              <option value="1">1st Year</option>
+              <option value="2">2nd Year</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+            </select>
+          </label>
+
+          <label class="field role-field hidden" data-roles="worker">
+            <span>Worker Type</span>
+            <select id="workerType">
+              <option value="">Select worker type</option>
+              <option value="Electrician">Electrician</option>
+              <option value="Plumber">Plumber</option>
+              <option value="Lab Assistant">Lab Assistant</option>
+              <option value="IT Support">IT Support</option>
+              <option value="Maintenance">Maintenance</option>
+            </select>
+          </label>
+        </div>
+
+        <button class="primary-btn" type="submit">Register</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

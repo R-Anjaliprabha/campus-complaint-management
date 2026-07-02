@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complaint Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard">
+  <main class="dashboard-shell">
+    <header class="topbar card">
+      <div>
+        <p class="eyebrow">Role Dashboard</p>
+        <h1 id="dashboardTitle">Complaint Overview</h1>
+        <p class="section-copy" id="dashboardSubtitle"></p>
+      </div>
+
+      <div class="topbar-actions">
+        <button id="raiseComplaintBtn" class="ghost-btn hidden" type="button" onclick="goComplaint()">Raise Complaint</button>
+        <button class="ghost-btn" type="button" onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <section class="stats-grid" id="statsGrid"></section>
+
+    <section class="card dashboard-section">
+      <div class="section-header">
+        <div>
+          <h2>Complaint Feed</h2>
+          <p class="section-copy">Each role sees only the complaints allowed for them.</p>
+        </div>
+        <div id="filterSummary" class="chip"></div>
+      </div>
+
+      <div id="emptyState" class="empty-state hidden">
+        <h3>No complaints available</h3>
+        <p>The complaint list will appear here when matching records are available.</p>
+      </div>
+
+      <div id="complaintList" class="complaint-list"></div>
+    </section>
+
+    <section id="adminUsersSection" class="card dashboard-section hidden">
+      <div class="section-header">
+        <div>
+          <h2>User Directory</h2>
+          <p class="section-copy">Admin-only view of registered students, approvers, and workers.</p>
+        </div>
+      </div>
+      <div id="userDirectory" class="user-directory"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
